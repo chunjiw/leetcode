@@ -31,19 +31,19 @@ class Solution(object):
         """
         if not root:
             return 0
-        md = [float('inf')]
-        self.dfs(root, md, 0)
-        return md[0]
+        self.res = float('inf')
+        self.dfs(root, 0)
+        return self.res
 
-    def dfs(self, root, md, level):
+    def dfs(self, root, level):
         level += 1
-        if level > md[0]:
+        if level > self.res:
             return
         if not root.left and not root.right:
-            md[0] = min(md[0], level)
+            self.res = min(self.res, level)
             return
         if root.left:
-            self.dfs(root.left, md, level)
+            self.dfs(root.left, level)
         if root.right:
-            self.dfs(root.right, md, level)
+            self.dfs(root.right, level)
         return
