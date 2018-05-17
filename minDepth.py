@@ -29,14 +29,13 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+        if not root:
+            return 0
         md = [float('inf')]
         self.dfs(root, md, 0)
         return md[0]
 
     def dfs(self, root, md, level):
-        if not root:
-            md[0] = min(md[0], level)
-            return
         level += 1
         if level > md[0]:
             return
