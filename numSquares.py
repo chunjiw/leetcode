@@ -25,15 +25,15 @@ class Solution(object):
         level = [n]
         nextlevel = []
         while 1:
+            depth += 1
             for m in level:
-                if m == 0:
-                    return depth
                 maxSR = int(math.sqrt(m))
                 for i in range(maxSR, 0, -1):
+                    if m == i * i:
+                        return depth
                     nextlevel.append(m - i * i)
             level = nextlevel
             nextlevel = []
-            depth += 1
 
 
 
