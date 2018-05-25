@@ -21,20 +21,19 @@ class Solution(object):
         """
         if n < 1:
             return 0
-        self.result = n
-        self.dfs(n, 0)
-        return self.result
-
-    def dfs(self, n, nSummates):
-        if nSummates > self.result:
-            return
-        if n == 0:
-            self.result = min(nSummates, self.result)
-            return
-        maxSR = int(math.sqrt(n))
-        for i in range(maxSR, 0, -1):
-            self.dfs(n - i * i, nSummates + 1)
-
+        depth = 0
+        level = [n]
+        nextlevel = []
+        while 1:
+            for m in level:
+                if m == 0:
+                    return depth
+                maxSR = int(math.sqrt(m))
+                for i in range(maxSR, 0, -1):
+                    nextlevel.append(m - i * i)
+            level = nextlevel
+            nextlevel = []
+            depth += 1
 
 
 
