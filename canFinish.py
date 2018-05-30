@@ -1,0 +1,55 @@
+# There are a total of n courses you have to take, labeled from 0 to n-1.
+
+# Some courses may have prerequisites, for example to take course 0 you have to first take course 1, which is expressed as a pair: [0,1]
+
+# Given the total number of courses and a list of prerequisite pairs, is it possible for you to finish all courses?
+
+# Example 1:
+
+# Input: 2, [[1,0]] 
+# Output: true
+# Explanation: There are a total of 2 courses to take. 
+#              To take course 1 you should have finished course 0. So it is possible.
+# Example 2:
+
+# Input: 2, [[1,0],[0,1]]
+# Output: false
+# Explanation: There are a total of 2 courses to take. 
+#              To take course 1 you should have finished course 0, and to take course 0 you should
+#              also have finished course 1. So it is impossible.
+# Note:
+
+# The input prerequisites is a graph represented by a list of edges, not adjacency matrices. Read more about how a graph is represented.
+# You may assume that there are no duplicate edges in the input prerequisites.
+
+class Solution(object):
+    def canFinish(self, numCourses, prerequisites):
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: bool
+        """
+        # aproach: detect circles in the graph
+        if numCourses < 2 or not prerequisites:
+            return True
+        self.dependence = [set() for _ in range(numCourses)]
+        for v1, v2 in prerequisites:
+            self.dependence[v1].add(v2)
+
+        for root in range(numCourses):
+            # see whether root is in a loop
+            path = [root]
+            if not self.dfs(root, path):
+                return False
+        return True
+
+    def dfs(self, root, path):
+        for child in self.dependence[root]:
+            if child in path:
+                return False
+            else:
+                path.append(child)
+                if not self.dfs(child, path):
+                    return False
+                path.pop()
+        return True
