@@ -32,24 +32,29 @@ class Solution(object):
         # aproach: detect circles in the graph
         if numCourses < 2 or not prerequisites:
             return True
-        self.dependence = [set() for _ in range(numCourses)]
+        self.graph = [set() for _ in range(numCourses)]
         for v1, v2 in prerequisites:
-            self.dependence[v1].add(v2)
+            self.graph[v1].add(v2)
 
+        self.permanent = set()
+        
         for root in range(numCourses):
-            # see whether root is in a loop
-            path = [root]
-            if not self.dfs(root, path):
+            if root in self.permanent:
+                continue
+            self.temporary = set()
+            if not self.dfs(root):
                 return False
         return True
 
-    def dfs(self, root, path):
-        for child in self.dependence[root]:
-            if child in path:
+    def dfs(self, root):
+        if root in self.temporary:
+            return False
+        if root in self.permanent:
+            return True
+        self.temporary.add(root)
+        for child in self.graph[root]:
+            if not self.dfs(child):
                 return False
-            else:
-                path.append(child)
-                if not self.dfs(child, path):
-                    return False
-                path.pop()
+        self.temporary.remove(root)
+        self.permanent.add(root)
         return True
