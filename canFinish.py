@@ -30,6 +30,7 @@ class Solution(object):
         :rtype: bool
         """
         # aproach: detect circles in the graph
+        # https://en.wikipedia.org/wiki/Topological_sorting
         if numCourses < 2 or not prerequisites:
             return True
         self.graph = [set() for _ in range(numCourses)]
