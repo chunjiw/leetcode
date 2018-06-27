@@ -42,33 +42,31 @@ class Solution(object):
             return [0]
         if not prerequisites:
             return range(numCourses)
-        
-        self.result = []
-        self.connect = [set() for _ in range(numCourses)]
-        for e1, e2 in prerequisites:
-            self.connect[e1].add(e2)
 
-        self.permanent = set()
-        for node in range(numCourses):
-            self.temporary = set()
-            if not self.visit(node):
+        result = []
+        impossible = [False]
+        dependency = [set() for _ in xrange(numCourses)]
+        for u, v in prerequisites:
+            dependency[u].add(v)
+
+        for c in range(numCourses):
+            counted = set()
+            self.visit(c, result, counted, dependency, impossible)
+            if impossible[0]:
                 return []
-        return self.result
+        return result       
 
-    def visit(self, node):
-        if node in self.permanent:
-            return True
-        if node in self.temporary:
-            return False
-        self.temporary.add(node)
-        for child in self.connect[node]:
-            if not self.visit(child):
-                return False
-        self.temporary.remove(node)
-        self.result.append(node)
-        self.permanent.add(node)
-        return True
-
+    def visit(self, node, result, counted, dependency, impossible):
+        if node in result:
+            return
+        if node in counted:
+            impossible[0] = True
+            return
+        counted.add(node)
+        for child in dependency[node]:
+            self.visit(child, result, counted, dependency, impossible)
+        counted.remove(node)
+        result.append(node)
 
 
 
