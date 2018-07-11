@@ -23,21 +23,26 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
+        nums.sort()
         result = []
         for i in range(len(nums)):
-            pairs = self.twoSum(nums[i+1:], -nums[i])
+            pairs = self.twoSum(nums, i, -nums[i])
             for pair in pairs:
                 self.add(result, pair + [nums[i]])
         return result
 
-    def twoSum(self, nums, target):
+    def twoSum(self, nums, start, target):
+        left, right = start + 1, len(nums) - 1
         result = []
-        bag = set()
-        for num in nums:
-            if target - num in bag:
-                result.append([num, target - num])
+        while left < right:
+            if nums[left] + nums[right] == target:
+                result.append([nums[left], nums[right]])
+                left += 1
+                right -= 1
+            elif nums[left] + nums[right] > target:
+                right -= 1
             else:
-                bag.add(num)
+                left += 1
         return result
 
     def add(self, result, triplet):
