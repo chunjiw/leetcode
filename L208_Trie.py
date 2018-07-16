@@ -25,8 +25,7 @@ class Node(object):
     def __init__(self, char):
         self.val = char
         self.end = False
-        self.next = []
-
+        self.next = {}
 
 
 class Trie(object):
@@ -46,17 +45,11 @@ class Trie(object):
         """
         node = self.root
         for char in word:
-            found = False
-            for child in node.next:
-                if char == child.val:
-                    node = child
-                    found = True
-                    break
-            if not found:
-                node.next.append(Node(char))
-                node = node.next[-1]
-        node.end = True    
-        
+            if char not in node.next:
+                node.next[char] = Node(char)
+            node = node.next[char]
+        node.end = True
+
 
     def search(self, word):
         """
@@ -66,14 +59,9 @@ class Trie(object):
         """
         node = self.root
         for char in word:
-            found = False
-            for child in node.next:
-                if char == child.val:
-                    node = child
-                    found = True
-                    break
-            if not found:
+            if char not in node.next:
                 return False
+            node = node.next[char]
         return node.end
         
 
@@ -85,14 +73,9 @@ class Trie(object):
         """
         node = self.root
         for char in prefix:
-            found = False
-            for child in node.next:
-                if char == child.val:
-                    node = child
-                    found = True
-                    break
-            if not found:
+            if char not in node.next:
                 return False
+            node = node.next[char]
         return True
 
 
