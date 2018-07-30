@@ -34,6 +34,13 @@
 #         self.left = None
 #         self.right = None
 
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
 class Solution(object):
     def inorderSuccessor(self, root, p):
         """
@@ -41,19 +48,8 @@ class Solution(object):
         :type p: TreeNode
         :rtype: TreeNode
         """
-        result = []
-        self.inorder(root, [False], result, p)
-        if not result:
-            return None
-        return result[0]
-
-    def inorder(self, root, found, result, p):
         if not root:
             return
-        self.inorder(root.left, found, result, p)
-        if found[0]:
-            result.append(root)
-            return
-        if root == p:
-            found[0] = True
-        self.inorder(root.right, found, result, p)
+        if p.val < root.val:
+            return self.inorderSuccessor(root.left, p) or root
+        return self.inorderSuccessor(root.right, p)
