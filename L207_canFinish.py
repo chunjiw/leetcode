@@ -31,33 +31,31 @@ class Solution(object):
         :type prerequisites: List[List[int]]
         :rtype: bool
         """
-        # aproach: detect circles in the graph
-        # https://en.wikipedia.org/wiki/Topological_sorting
-        if numCourses < 2 or not prerequisites:
+        if numCourses < 2:
             return True
-        self.graph = [set() for _ in range(numCourses)]
-        for v1, v2 in prerequisites:
-            self.graph[v1].add(v2)
-
-        self.permanent = set()
         
-        for root in range(numCourses):
-            if root in self.permanent:
-                continue
-            self.temporary = set()
-            if not self.dfs(root):
+        graph = [set() for _ in range(numCourses)]
+        for a, b in prerequisites:
+            graph[a].add(b)
+        
+        checked = set()
+        
+        for node in range(numCourses):
+            visited = set()
+            if not self.visit(node, graph, visited, checked):
                 return False
         return True
-
-    def dfs(self, root):
-        if root in self.temporary:
-            return False
-        if root in self.permanent:
+    
+    def visit(self, node, graph, visited, checked):
+        if node in checked:
             return True
-        self.temporary.add(root)
-        for child in self.graph[root]:
-            if not self.dfs(child):
+        for child in graph[node]:
+            if child in visited:
                 return False
-        self.temporary.remove(root)
-        self.permanent.add(root)
-        return True
+            visited.add(child)
+            if not self.visit(child, graph, visited, checked):
+                return False
+            visited.remove(child)
+        checked.add(node)
+        return True    
+        
