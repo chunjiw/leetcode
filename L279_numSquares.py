@@ -12,6 +12,7 @@
 # Explanation: 13 = 4 + 9.
 
 import math
+from collections import deque
 
 class Solution(object):
     def numSquares(self, n):
@@ -22,19 +23,18 @@ class Solution(object):
         if n < 1:
             return 0
         depth = 0
-        level = [n]
-        nextlevel = []
-        while 1:
+        level = deque()
+        level.append(n)
+        while level:
             depth += 1
-            for m in level:
+            size = len(level)
+            for _ in range(size):
+                m = level.popleft()
                 maxSR = int(math.sqrt(m))
                 for i in range(maxSR, 0, -1):
                     if m == i * i:
                         return depth
-                    nextlevel.append(m - i * i)
-            level = nextlevel
-            nextlevel = []
-
+                    level.append(m - i * i)
 
 
 
