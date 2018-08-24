@@ -32,15 +32,18 @@
 class Solution:
     # @param node, a undirected graph node
     # @return a undirected graph node
-    mapping = dict()
     def cloneGraph(self, node):
-        if not node:
+        cloned = dict()
+        return self.cg(node, cloned)
+
+    def cg(self, node, cloned):
+        if not node or node in cloned:
             return node
         node2 = UndirectedGraphNode(node.label)
-        self.mapping[node] = node2
+        cloned[node] = node2
         for neighbor in node.neighbors:
-            if neighbor not in self.mapping:
-                node2.neighbors.append(self.cloneGraph(neighbor))
+            if neighbor in cloned:
+                node2.neighbors.append(cloned[neighbor])
             else:
-                node2.neighbors.append(self.mapping[neighbor])
+                node2.neighbors.append(self.cg(neighbor, cloned))
         return node2
