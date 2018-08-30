@@ -35,7 +35,6 @@
 # Therefore, sum = 495 + 491 + 40 = 1026.
 
 
-
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -49,24 +48,17 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        # approach: dfs traversal 
         self.result = 0
-        self.dfs(root, [])
+        self.solution = 0
+        self.traverse(root)
         return self.result
     
-    def dfs(self, root, path):
+    def traverse(self, root):
         if not root:
             return
-        path.append(root.val)
+        self.solution = self.solution * 10 + root.val
         if not root.left and not root.right:
-            self.result += self.summ(path)
-        else:
-            self.dfs(root.left, path)
-            self.dfs(root.right, path)
-        path.pop()
-        
-    def summ(self, path):
-        result = 0
-        for i in path:
-            result = result * 10 + i
-        return result
+            self.result += self.solution
+        self.traverse(root.left)
+        self.traverse(root.right)
+        self.solution = (self.solution - root.val) / 10
