@@ -13,14 +13,8 @@ class Solution:
         # loop over ratings
         rl = 0
         fl = 0
-        if ratings[0] < ratings[1]:
-            rising = True
-            rl = 1
-        else:
-            rising = False
-            fl = 1
-        
-        for i in range(2, n):
+        rising = True
+        for i in range(1, n):
             if rising:
                 if ratings[i-1] < ratings[i]:
                     rl += 1
