@@ -7,32 +7,28 @@ class Solution:
 
     def candy(self, ratings: List[int]) -> int:
         n = len(ratings)
-        if n < 2:
-            return n
         result = 0
         # loop over ratings
-        rl = 0
-        fl = 0
-        rising = True
+        rl, fl = 0, 0
+        risingBefore = True
         for i in range(1, n):
             if ratings[i-1] == ratings[i]:
                 result += self.sumcandy(rl, fl)
-                rising = True
+                risingBefore = True
                 rl, fl = 0, 0
-                continue
-            if rising:
-                if ratings[i-1] < ratings[i]:
+            elif ratings[i-1] < ratings[i]:
+                if risingBefore:
                     rl += 1
-                else:
-                    rising = False
-                    fl = 1
-            else:
-                if ratings[i-1] > ratings[i]:
-                    fl += 1
-                else:
+                else:    # falling turns to rising
                     result += self.sumcandy(rl, fl)
-                    rising = True
+                    risingBefore = True
                     rl, fl = 1, 0
+            else:
+                if not risingBefore:
+                    fl += 1
+                else:    # risingBefore turns to falling
+                    risingBefore = False
+                    fl = 1
         result += self.sumcandy(rl, fl)
         return result + n
 
