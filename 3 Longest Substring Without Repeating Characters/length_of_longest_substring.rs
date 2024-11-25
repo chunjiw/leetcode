@@ -1,3 +1,5 @@
+struct Solution;
+
 use std::collections::HashSet;
 
 impl Solution {
@@ -15,10 +17,16 @@ impl Solution {
                 i += 1;
             } else {
                 letters.insert(&sb[j]);
-                longest = if longest < letters.len() {letters.len()} else {longest};
+                longest = longest.max(letters.len());
             }
             j += 1;
         }
         longest as i32
     }
+}
+
+fn main() {
+    let s = "abcabcbb".to_string();
+    let result = Solution::length_of_longest_substring(s);
+    println!("Length of longest substring: {}", result); // Output: 3
 }
