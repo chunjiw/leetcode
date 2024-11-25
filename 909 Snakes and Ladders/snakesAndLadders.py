@@ -1,4 +1,5 @@
 from typing import List
+from collections import deque
 
 class Solution:
 
@@ -16,13 +17,12 @@ class Solution:
     def snakesAndLadders(self, board: List[List[int]]) -> int:
         n = len(board)
         visited = set()
-        line = [1]
+        line = deque([1])
         visited.add(1)
         steps = 1
         while line:
-            print(steps, line)
             for _ in range(len(line)):
-                curr = line.pop(0)
+                curr = line.popleft()
                 for step in range(1, 7):
                     if curr + step > n * n:
                         break
