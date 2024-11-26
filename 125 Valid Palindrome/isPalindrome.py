@@ -1,26 +1,24 @@
 class Solution:
 
-    def lower(self, c):
+    def isAlphanumeric(self, c):
         isNum = ord('0') <= ord(c) <= ord('9') 
         isLow = ord('a') <= ord(c) <= ord('z')
         isUp = ord('A') <= ord(c) <= ord('Z')
-        if isNum or isLow:
-            return c
-        if isUp:
-            return chr(ord(c) - ord('A') + ord('a'))
-        else:
-            return None
+        return isNum or isLow or isUp
+    
+    def similar(self, c1, c2):
+        return c1.lower() == c2.lower()
 
     def isPalindrome(self, s: str) -> bool:
-        sl = list(s)
-        i, j = 0, 0
-        for j in range(len(sl)):
-            if lower(sl[j]):
-                sl[i] = lower(sl[j])
-                i += 1
-        i, j = 0, i - 1
+        i, j = 0, len(s) - 1
         while i < j:
-            if sl[i] != sl[j]:
+            if not self.isAlphanumeric(s[i]):
+                i += 1
+                continue
+            if not self.isAlphanumeric(s[j]):
+                j -= 1
+                continue
+            if not self.similar(s[i], s[j]):
                 return False
             i, j = i+1, j-1
         return True
