@@ -16,4 +16,3 @@ class Solution:
         right = self.buildTree(preorder[1 + root_index:], inorder[1 + root_index:])
         root = TreeNode(preorder[0], left, right)
         return root
-                
