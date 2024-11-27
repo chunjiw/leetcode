@@ -4,25 +4,23 @@ from collections import deque
 
 class Solution:
     def shortestDistanceAfterQueries(self, n: int, queries: List[List[int]]) -> List[int]:
-        source = [[]]
+        graph = [[] for _ in range(n)]
         for i in range(1, n):
-            source.append([i - 1])
-        plen = list(range(n))
-        plen.reverse()
-        res = []
-        for query in queries:
-            source[query[1]].append(query[0])
-            level = deque([query[1]])
-            while level:
-                for _ in range(len(level)):
-                    des = level.popleft()
-                    for src in source[des]:
-                        if  plen[src] > plen[des] + 1:
-                            plen[src] = plen[des] + 1
-                            level.append(src)
-            res.append(plen[0])
-        return res
+            graph[i].append(i - 1)
+        distances = list(range(n-1, -1, -1))
+        result = []
+        for src, dest in queries:
+            graph[dest].append(src)
+            queue = deque([dest])
+            while queue:
+                current_dest = queue.popleft()
+                for src in graph[current_dest]:
+                    if  distances[src] > distances[current_dest] + 1:
+                        distances[src] = distances[current_dest] + 1
+                        queue.append(src)
+            result.append(distances[0])
+        return result
 
 sol = Solution()
-res = sol.shortestDistanceAfterQueries(5, [[2,4],[0,2],[0,4]])
-print(res)
+result = sol.shortestDistanceAfterQueries(5, [[2,4],[0,2],[0,4]])
+print(result)
