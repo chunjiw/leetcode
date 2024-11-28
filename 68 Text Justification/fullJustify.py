@@ -19,16 +19,16 @@ class Solution:
 
     def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
         line = [words[0]]
-        i = 1
+        line_len = len(words[0])
         result = []
-        while i < len(words):
-            curr_len = sum([len(word) for word in line]) + len(line) - 1
-            if curr_len + 1 + len(words[i]) <= maxWidth:
-                line.append(words[i])
+        for word in words[1:]:
+            if line_len + 1 + len(word) <= maxWidth:
+                line.append(word)
+                line_len += 1 + len(word)
             else:
                 result.append(self.justifyLine(line, maxWidth))
-                line = [words[i]]
-            i += 1
+                line = [word]
+                line_len = len(word)
         line = ' '.join(line)
         line += ' ' * (maxWidth - len(line))
         result.append(line)
@@ -38,5 +38,6 @@ sol = Solution()
 print(sol.fullJustify(["This", "is", "an", "example", "of", "text", "justification."], 16))
 print(sol.fullJustify(["What","must","be","acknowledgment","shall","be"], 16))
 print(sol.fullJustify(["Science","is","what","we","understand","well","enough","to","explain","to","a","computer.","Art","is","everything","else","we","do"], 20))
+print(sol.fullJustify(["Listen","to","many,","speak","to","a","few."], 6))
 
         
