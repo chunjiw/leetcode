@@ -14,6 +14,6 @@ class Solution:
                 root = root.left
             if not stack:
                 return result
-            # gaurantee node at top of stack, node.left is already visited or None
+            # gaurantee for node at top of stack, node.left is already visited or None
             root = stack.pop()
             root = root.right
