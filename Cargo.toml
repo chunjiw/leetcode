@@ -1,0 +1,10 @@
+[package]
+name = "leetcode"
+version = "0.1.0"
+
+[dependencies]
+
+[[bin]]
+name = "1455"
+path = "1455 Check If a Word Occurs As a Prefix of Any Word in a Sentence/is_prefix_of_word.rs"
+test = false

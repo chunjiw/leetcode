@@ -1,2 +1,9 @@
-.idea/
-*.pyc
+*
+
+!*.md
+!*.py
+!*.rs
+
+!Cargo.toml
+
+!*/
