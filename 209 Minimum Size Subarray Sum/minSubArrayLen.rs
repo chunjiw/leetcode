@@ -7,6 +7,7 @@ impl Solution {
         let mut min_len = usize::MAX;
         while i < nums.len() {     
             if curr_sum >= target {
+                min_len = min_len.min(j - i);
                 curr_sum -= nums[i];
                 i += 1;
             } else if j < nums.len() {
@@ -14,9 +15,6 @@ impl Solution {
                 j += 1;
             } else {
                 break;
-            }
-            if curr_sum == target {
-                min_len = min_len.min(j - i);
             }
         }
         if min_len == usize::MAX { 0 } else { min_len as i32 }
