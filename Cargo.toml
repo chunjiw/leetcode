@@ -5,6 +5,11 @@ version = "0.1.0"
 [dependencies]
 
 [[bin]]
+name = "2825"
+path = "2825 Make String a Subsequence Using Cyclic Increments/main.rs"
+test = false
+
+[[bin]]
 name = "1455"
 path = "1455 Check If a Word Occurs As a Prefix of Any Word in a Sentence/is_prefix_of_word.rs"
 test = false
