@@ -5,8 +5,13 @@ version = "0.1.0"
 [dependencies]
 
 [[bin]]
-name = "2825"
-path = "2825 Make String a Subsequence Using Cyclic Increments/main.rs"
+name = "30"
+path = "30 Substring with Concatenation of All Words/main.rs"
+test = false
+
+[[bin]]
+name = "209"
+path = "209 Minimum Size Subarray Sum/minSubArrayLen.rs"
 test = false
 
 [[bin]]
@@ -15,6 +20,6 @@ path = "1455 Check If a Word Occurs As a Prefix of Any Word in a Sentence/is_pre
 test = false
 
 [[bin]]
-name = "209"
-path = "209 Minimum Size Subarray Sum/minSubArrayLen.rs"
 test = false
+name = "2825"
+path = "2825 Make String a Subsequence Using Cyclic Increments/main.rs"
