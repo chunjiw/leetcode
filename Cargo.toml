@@ -20,6 +20,11 @@ path = "209 Minimum Size Subarray Sum/minSubArrayLen.rs"
 test = false
 
 [[bin]]
+name = "383"
+path = "383 Ransom Note/main.rs"
+test = false
+
+[[bin]]
 name = "1455"
 path = "1455 Check If a Word Occurs As a Prefix of Any Word in a Sentence/is_prefix_of_word.rs"
 test = false
