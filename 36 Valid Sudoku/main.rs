@@ -48,4 +48,7 @@ impl Solution {
 }
 
 fn main () {
+    let board = vec![vec![]];
+    let valid = Solution::is_valid_sudoku(board);
+    println!("{valid}");
 }
