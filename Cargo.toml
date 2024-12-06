@@ -10,6 +10,11 @@ path = "30 Substring with Concatenation of All Words/main.rs"
 test = false
 
 [[bin]]
+name = "36"
+path = "36 Valid Sudoku/main.rs"
+test = false
+
+[[bin]]
 name = "209"
 path = "209 Minimum Size Subarray Sum/minSubArrayLen.rs"
 test = false
