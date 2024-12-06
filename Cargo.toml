@@ -18,6 +18,10 @@ name = "15"
 path = "problems/15 3Sum/three_sum.rs"
 
 [[bin]]
+name = "228"
+path = "problems/228 Summary Ranges/main.rs"
+
+[[bin]]
 name = "2825"
 path = "problems/2825 Make String a Subsequence Using Cyclic Increments/main.rs"
 
