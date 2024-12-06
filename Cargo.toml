@@ -15,6 +15,11 @@ path = "36 Valid Sudoku/main.rs"
 test = false
 
 [[bin]]
+name = "49"
+path = "49 Group Anagrams/main.rs"
+test = false
+
+[[bin]]
 name = "205"
 path = "205 Isomorphic Strings/main.rs"
 test = false
