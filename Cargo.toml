@@ -5,6 +5,11 @@ version = "0.1.0"
 [dependencies]
 
 [[bin]]
+name = "1"
+path = "1 Two Sum/main.rs"
+test = false
+
+[[bin]]
 name = "30"
 path = "30 Substring with Concatenation of All Words/main.rs"
 test = false
