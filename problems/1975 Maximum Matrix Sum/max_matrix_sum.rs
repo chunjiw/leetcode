@@ -1,3 +1,5 @@
+struct Solution;
+
 impl Solution {
     pub fn max_matrix_sum(matrix: Vec<Vec<i32>>) -> i64 {
         let mut m = i64::MAX;
@@ -17,4 +19,8 @@ impl Solution {
         }
         res - neg_singular * 2 * m
     }
+}
+
+fn main() {
+    println!("{}", Solution::max_matrix_sum(vec![vec![]]));
 }

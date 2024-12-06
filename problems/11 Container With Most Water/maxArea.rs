@@ -1,3 +1,5 @@
+struct Solution;
+
 impl Solution {
     pub fn max_area(height: Vec<i32>) -> i32 {
         let (mut i, mut j) = (0, height.len() - 1);
@@ -13,4 +15,8 @@ impl Solution {
         }
         m
     }
+}
+
+fn main() {
+    println!("{}", Solution::max_area(vec![]));
 }

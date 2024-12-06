@@ -1,50 +1,91 @@
 [package]
 name = "leetcode"
 version = "0.1.0"
+edition = "2021"
 
 [dependencies]
 
 [[bin]]
-name = "1"
-path = "1 Two Sum/main.rs"
-test = false
-
-[[bin]]
-name = "30"
-path = "30 Substring with Concatenation of All Words/main.rs"
-test = false
-
-[[bin]]
-name = "36"
-path = "36 Valid Sudoku/main.rs"
-test = false
+name = "238"
+path = "problems/238 Product of Array Except Self/product_except_self.rs"
 
 [[bin]]
 name = "49"
-path = "49 Group Anagrams/main.rs"
-test = false
+path = "problems/49 Group Anagrams/main.rs"
 
 [[bin]]
-name = "205"
-path = "205 Isomorphic Strings/main.rs"
-test = false
+name = "15"
+path = "problems/15 3Sum/three_sum.rs"
 
 [[bin]]
-name = "209"
-path = "209 Minimum Size Subarray Sum/minSubArrayLen.rs"
-test = false
+name = "2825"
+path = "problems/2825 Make String a Subsequence Using Cyclic Increments/main.rs"
 
 [[bin]]
-name = "383"
-path = "383 Ransom Note/main.rs"
-test = false
+name = "14"
+path = "problems/14 Longest Common Prefix/longest_common_prefix.rs"
+
+[[bin]]
+name = "134"
+path = "problems/134 Gas Station/can_complete_circuit.rs"
 
 [[bin]]
 name = "1455"
-path = "1455 Check If a Word Occurs As a Prefix of Any Word in a Sentence/is_prefix_of_word.rs"
-test = false
+path = "problems/1455 Check If a Word Occurs As a Prefix of Any Word in a Sentence/is_prefix_of_word.rs"
 
 [[bin]]
-test = false
-name = "2825"
-path = "2825 Make String a Subsequence Using Cyclic Increments/main.rs"
+name = "36"
+path = "problems/36 Valid Sudoku/main.rs"
+
+[[bin]]
+name = "1975"
+path = "problems/1975 Maximum Matrix Sum/max_matrix_sum.rs"
+
+[[bin]]
+name = "11"
+path = "problems/11 Container With Most Water/maxArea.rs"
+
+[[bin]]
+name = "209"
+path = "problems/209 Minimum Size Subarray Sum/minSubArrayLen.rs"
+
+[[bin]]
+name = "383"
+path = "problems/383 Ransom Note/main.rs"
+
+[[bin]]
+name = "198"
+path = "problems/198 House Robber/rob.rs"
+
+[[bin]]
+name = "205"
+path = "problems/205 Isomorphic Strings/main.rs"
+
+[[bin]]
+name = "3"
+path = "problems/3 Longest Substring Without Repeating Characters/length_of_longest_substring.rs"
+
+[[bin]]
+name = "1"
+path = "problems/1 Two Sum/main.rs"
+
+[[bin]]
+name = "58"
+path = "problems/58 Length of Last Word/length_of_last_word.rs"
+
+[[bin]]
+name = "380_Insert_Delete_GetRandom_O(1)"
+path = "problems/380_Insert_Delete_GetRandom_O(1)/ranset.rs"
+
+[[bin]]
+name = "392"
+path = "problems/392 Is Subsequence/is_subsequence.rs"
+
+[[bin]]
+name = "30"
+path = "problems/30 Substring with Concatenation of All Words/main.rs"
+
+[[bin]]
+name = "load-cargo"
+path = "load-cargo/main.rs"
+

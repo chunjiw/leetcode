@@ -1,3 +1,5 @@
+struct Solution;
+
 impl Solution {
     pub fn can_complete_circuit(gas: Vec<i32>, cost: Vec<i32>) -> i32 {
         let n = gas.len();
@@ -21,4 +23,8 @@ impl Solution {
         }
         index as i32
     }
+}
+
+fn main() {
+    println!("{}", Solution::can_complete_circuit(vec![], vec![]));
 }

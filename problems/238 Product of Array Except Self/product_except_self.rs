@@ -1,3 +1,5 @@
+struct Solution;
+
 impl Solution {
     pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
         let n = nums.len(); // `n` is a runtime-determined value
@@ -12,4 +14,8 @@ impl Solution {
         }
         incum
     }
+}
+
+fn main() {
+    println!("{:?}", Solution::product_except_self(vec![]));
 }

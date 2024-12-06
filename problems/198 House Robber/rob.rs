@@ -1,3 +1,5 @@
+struct Solution;
+
 impl Solution {
     pub fn rob(nums: Vec<i32>) -> i32 {
         let n = nums.len();
@@ -14,4 +16,8 @@ impl Solution {
         }
         sol[n-1]
     }
+}
+
+fn main() {
+    println!("{}", Solution::rob(vec![]));
 }

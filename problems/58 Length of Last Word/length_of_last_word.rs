@@ -1,3 +1,5 @@
+struct Solution;
+
 impl Solution {
     pub fn length_of_last_word(s: String) -> i32 {
         let mut counting = false;
@@ -16,4 +18,8 @@ impl Solution {
         }
         result
     }
+}
+
+fn main() {
+    println!("{}", Solution::length_of_last_word(String::new()));
 }
