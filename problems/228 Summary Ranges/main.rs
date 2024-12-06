@@ -1,36 +1,26 @@
 struct Solution;
 
 impl Solution {
-
-    pub fn summary_range(range: &Vec<i32>) -> String {
-        if range.len() == 1 {
-            range[0].to_string()
-        } else if range.len() > 1 {
-            format!("{}->{}", range[0], range.last().expect("should have at least one element in range"))
-        } else {
-            panic!("range is empty")
-        }
-    }
-
     pub fn summary_ranges(nums: Vec<i32>) -> Vec<String> {
         let mut result = vec![];
         if nums.is_empty() {
             return result;
         }
-        let mut prev = nums[0] - 2;
-        let mut range: Vec<i32> = vec![];
+        
+        let mut from = nums[0];
 
-        for num in nums {
-            if num > prev + 1 {
-                if !range.is_empty() {
-                    result.push(Self::summary_range(&range));
+        for (i, num) in nums.iter().enumerate() {
+            if i + 1 == nums.len() || num + 1 < nums[i+1] {
+                if from == *num {
+                    result.push(from.to_string());
+                } else {
+                    result.push(format!("{}->{}", from, num));
                 }
-                range.clear();
+                if i + 1 < nums.len() {
+                    from = nums[i + 1];
+                }
             }
-            range.push(num);
-            prev = num;
         }
-        result.push(Self::summary_range(&range));
         result
     }
 }
