@@ -82,6 +82,10 @@ name = "3"
 path = "problems/3 Longest Substring Without Repeating Characters/length_of_longest_substring.rs"
 
 [[bin]]
+name = "153"
+path = "problems/153 Find Minimum in Rotated Sorted Array/main.rs"
+
+[[bin]]
 name = "1"
 path = "problems/1 Two Sum/main.rs"
 
