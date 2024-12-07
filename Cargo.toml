@@ -62,6 +62,10 @@ name = "383"
 path = "problems/383 Ransom Note/main.rs"
 
 [[bin]]
+name = "1760"
+path = "problems/1760 Minimum Limit of Balls in a Bag/main.rs"
+
+[[bin]]
 name = "198"
 path = "problems/198 House Robber/rob.rs"
 
