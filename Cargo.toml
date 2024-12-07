@@ -98,6 +98,10 @@ name = "380_Insert_Delete_GetRandom_O(1)"
 path = "problems/380_Insert_Delete_GetRandom_O(1)/ranset.rs"
 
 [[bin]]
+name = "33"
+path = "problems/33 Search in Rotated Sorted Array/main.rs"
+
+[[bin]]
 name = "392"
 path = "problems/392 Is Subsequence/is_subsequence.rs"
 
