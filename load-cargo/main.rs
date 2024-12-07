@@ -1,10 +1,13 @@
+use std::collections::HashSet;
 use std::fs;
 use std::io;
+use std::io::BufRead;
 use std::path::{Path, PathBuf};
 
 fn main() -> io::Result<()> {
     let base_dir = std::env::current_dir()?; // Start in the current directory
     let cargo_toml_path = base_dir.join("Cargo.toml");
+    let cargo_ignore_path = base_dir.join(".cargoignore");
 
     // // Ensure the `Cargo.toml` file exists
     // if !cargo_toml_path.exists() {
@@ -15,7 +18,15 @@ fn main() -> io::Result<()> {
     // Find all Rust files in the directory recursively
     let rust_files = find_rust_files(&base_dir)?;
 
-    let new_cargo_toml = generate_cargo_toml(&base_dir, &rust_files)?;
+    let ignores: HashSet<String> = if cargo_ignore_path.exists() {
+        let file = fs::File::open(&cargo_ignore_path)?;
+        let reader = io::BufReader::new(file);
+        reader.lines().filter_map(|line| line.ok()).collect()
+    } else {
+        HashSet::new()
+    };
+
+    let new_cargo_toml = generate_cargo_toml(&base_dir, &rust_files, &ignores)?;
 
     // println!("{:?}", new_cargo_toml);
     fs::write(cargo_toml_path, new_cargo_toml)?;
@@ -43,7 +54,7 @@ fn find_rust_files(base_dir: &Path) -> io::Result<Vec<PathBuf>> {
     Ok(rust_files)
 }
 
-fn generate_cargo_toml(base_dir: &Path, rust_files: &[PathBuf]) -> io::Result<String> {
+fn generate_cargo_toml(base_dir: &Path, rust_files: &[PathBuf], ignores: &HashSet<String>) -> io::Result<String> {
     // Start with the basic package definition
     let mut cargo_toml = String::from("[package]\n");
     cargo_toml.push_str("name = \"leetcode\"\n");
@@ -55,6 +66,9 @@ fn generate_cargo_toml(base_dir: &Path, rust_files: &[PathBuf]) -> io::Result<St
     // Add binary targets
     for file in rust_files {
         if let Some(name) = extract_binary_name(file) {
+            if ignores.contains(&name) {
+                continue;
+            }
             let relative_path = file.strip_prefix(base_dir)
                 .expect("Failed to get relative path")
                 .display()
