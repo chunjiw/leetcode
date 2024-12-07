@@ -94,6 +94,10 @@ name = "392"
 path = "problems/392 Is Subsequence/is_subsequence.rs"
 
 [[bin]]
+name = "704"
+path = "problems/704 Binary Search/main.rs"
+
+[[bin]]
 name = "30"
 path = "problems/30 Substring with Concatenation of All Words/main.rs"
 
