@@ -50,6 +50,10 @@ name = "1975"
 path = "problems/1975 Maximum Matrix Sum/max_matrix_sum.rs"
 
 [[bin]]
+name = "162"
+path = "problems/162 Find Peak Element/main.rs"
+
+[[bin]]
 name = "11"
 path = "problems/11 Container With Most Water/maxArea.rs"
 
