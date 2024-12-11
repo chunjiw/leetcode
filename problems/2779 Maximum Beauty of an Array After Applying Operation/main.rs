@@ -1,21 +1,30 @@
 struct Solution;
 
 impl Solution {
-    pub fn maximum_beauty(nums: Vec<i32>, k: i32) -> i32 {
-        let &m = nums.iter().max().unwrap();
-        let mut count = vec![0; (m + k + 1) as usize];
-        for num in nums {
-            for n in num-k..num+k+1 {
-                if n >= 0 {
-                    count[n as usize] += 1;
+    pub fn maximum_beauty(mut nums: Vec<i32>, k: i32) -> i32 {
+        nums.sort_unstable();
+        let mut beauty = 1;
+        for (ni, num) in nums.iter().enumerate() {
+            // look for nj that is the first that num + k < nums[nj] - k
+            let (mut i, mut j) = (ni + 1, nums.len() - 1);
+            if i > j { break; }
+            while i < j {
+                let m = i + (j - i) / 2;
+                if num + k >= nums[m] - k {
+                    i = m + 1;
+                } else {
+                    j = m;
                 }
             }
+            let nj = if num + k < nums[i] - k { i } else { i + 1 };
+            beauty = beauty.max(nj - ni);
         }
-        *count.iter().max().unwrap() as i32
+        beauty as i32
     }
 }
 
 fn main() {
     println!("{}", Solution::maximum_beauty(vec![4,6,1,2], 2));
     println!("{}", Solution::maximum_beauty(vec![1,1,1,1], 10));
+    println!("{}", Solution::maximum_beauty(vec![52,34], 21));
 }
