@@ -3,6 +3,7 @@
 !*.md
 !*.py
 !*.rs
+!*.cpp
 
 !Cargo.toml
 !.cargoignore
