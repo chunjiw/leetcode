@@ -24,8 +24,8 @@ class Solution(object):
             if num - 1 not in bag:
                 count = num
                 streak = 1
-            while count + 1 in bag:
-                count += 1
-                streak += 1
-            longstreak = max(longstreak, streak)
+                while count + 1 in bag:
+                    count += 1
+                    streak += 1
+                longstreak = max(longstreak, streak)
         return longstreak
