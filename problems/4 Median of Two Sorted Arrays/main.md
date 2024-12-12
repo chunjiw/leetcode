@@ -24,4 +24,8 @@ If $m_1 = n_1 - 1$, then $m_2$ is possibly negative, we need to be careful. But 
 
 Which means the validity test involving $l_k[m_k]$ and $l_k[m_k+1]$ for $k = 1,2$ is always OK to test.
 
-If the loop exits without returning, then it means $l_1$ has only one element, or the whole $l_1$ is at the left or right of the final merged array.
+If the loop exits without returning, there are several situations:
+
+1. $l_1$ has only one element. Deal with this corner case in the beginning;
+2. `i == 0`, which means the whole $l_1$ is at the right half of the merged array;
+3. `i == n1 - 1` which means the whole $l_1$ is at the left half of the merged array.
