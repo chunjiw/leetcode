@@ -10,6 +10,14 @@ class Solution:
                 result.append((i, j))
         return result
 
+    def process(self, ii, jj, board, frontier, visited):
+        if (ii,jj) in visited:
+            return
+        visited.add((ii,jj))
+        if board[ii][jj] == 'O':
+            frontier.append((ii,jj))
+            board[ii][jj] = 'Q'        
+
     def solve(self, board: List[List[str]]) -> None:
         """
         Do not return anything, modify board in-place instead.
@@ -19,38 +27,20 @@ class Solution:
         visited = set()
         top, bot, lef, rit = 0, m-1, 0, n-1
         for j in range(lef, rit+1):
-            visited.add((top,j))
-            if board[top][j] == 'O':
-                frontier.append((top, j))
-                board[top][j] = 'Q'
+            self.process(top, j, board, frontier, visited)
         for i in range(top+1, bot+1):
-            visited.add((i,rit))
-            if board[i][rit] == 'O':
-                frontier.append((i, rit))
-                board[i][rit] = 'Q'
+            self.process(i, rit, board, frontier, visited)
         if top < bot:
-            visited.add((bot,j))
             for j in range(lef, rit):
-                if board[bot][j] == 'O':
-                    frontier.append((bot, j))
-                    board[bot][j] = 'Q'
+                self.process(bot, j, board, frontier, visited)
         if lef < rit:
-            visited.add((i,lef))
             for i in range(top+1, bot):
-                if board[i][lef] == 'O':
-                    frontier.append((i, lef))
-                    board[i][lef] = 'Q'
+                self.process(i, lef, board, frontier, visited)
         while frontier:
-            print(frontier)
             for _ in range(len(frontier)):
                 i, j = frontier.popleft()
                 for ii, jj in self.neighbors(i, j, m, n):
-                    if (ii,jj) in visited:
-                        continue
-                    visited.add((ii,jj))
-                    if board[ii][jj] == 'O':
-                        frontier.append((ii,jj))
-                        board[ii][jj] = 'Q'
+                    self.process(ii, jj, board, frontier, visited)
         for i in range(m):
             for j in range(n):
                 board[i][j] = 'O' if board[i][j] == 'Q' else 'X'
