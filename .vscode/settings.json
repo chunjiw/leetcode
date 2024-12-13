@@ -1,8 +1,12 @@
 {
     "cSpell.words": [
         "Deque",
+        "elif",
         "leetcode",
-        "nums"
+        "lmax",
+        "nums",
+        "rmax",
+        "rtype"
     ],
     "cSpell.allowCompoundWords": true
 }
