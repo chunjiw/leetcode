@@ -1,19 +1,17 @@
 struct Solution;
 
-use std::collections::HashSet;
-
 impl Solution {
 
     pub fn find_score(nums: Vec<i32>) -> i64 {
         let mut score = 0;
         let mut sorted: Vec<(usize, i32)> = nums.iter().enumerate().map(|(i, &v)| (i, v)).collect();
         sorted.sort_by_key(|&(_, value)| value);
-        let mut marked = HashSet::new();
+        let mut marked = vec![false; nums.len() + 1];
         for (i, value) in sorted {
-            if marked.contains(&i) { continue; }
+            if marked[i] { continue; }
             score += value as i64;
-            if i >= 1 { marked.insert(i - 1); }
-            marked.insert(i + 1);
+            if i >= 1 { marked[i-1] = true; }
+            marked[i+1] = true;
         }
         score
     }
