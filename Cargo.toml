@@ -74,6 +74,10 @@ name = "209"
 path = "problems/209 Minimum Size Subarray Sum/minSubArrayLen.rs"
 
 [[bin]]
+name = "137"
+path = "problems/137 Single Number II/main.rs"
+
+[[bin]]
 name = "383"
 path = "problems/383 Ransom Note/main.rs"
 
