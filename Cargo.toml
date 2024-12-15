@@ -30,6 +30,14 @@ name = "2825"
 path = "problems/2825 Make String a Subsequence Using Cyclic Increments/main.rs"
 
 [[bin]]
+name = "2762"
+path = "problems/2762 Continuous Subarrays/main.rs"
+
+[[bin]]
+name = "2779"
+path = "problems/2779 Maximum Beauty of an Array After Applying Operation/main.rs"
+
+[[bin]]
 name = "14"
 path = "problems/14 Longest Common Prefix/longest_common_prefix.rs"
 
@@ -52,6 +60,10 @@ path = "problems/1975 Maximum Matrix Sum/max_matrix_sum.rs"
 [[bin]]
 name = "162"
 path = "problems/162 Find Peak Element/main.rs"
+
+[[bin]]
+name = "242"
+path = "problems/242 Valid Anagram/main.rs"
 
 [[bin]]
 name = "11"
@@ -104,6 +116,10 @@ path = "problems/33 Search in Rotated Sorted Array/main.rs"
 [[bin]]
 name = "392"
 path = "problems/392 Is Subsequence/is_subsequence.rs"
+
+[[bin]]
+name = "2593"
+path = "problems/2593 Find Score of an Array After Marking All Elements/main.rs"
 
 [[bin]]
 name = "704"
