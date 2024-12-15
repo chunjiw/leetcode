@@ -130,6 +130,10 @@ name = "30"
 path = "problems/30 Substring with Concatenation of All Words/main.rs"
 
 [[bin]]
+name = "7"
+path = "problems/7 Reverse integer/main.rs"
+
+[[bin]]
 name = "load-cargo"
 path = "load-cargo/main.rs"
 
