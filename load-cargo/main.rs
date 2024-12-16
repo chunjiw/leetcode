@@ -51,6 +51,7 @@ fn find_rust_files(base_dir: &Path) -> io::Result<Vec<PathBuf>> {
             }
         }
     }
+    rust_files.sort();
     Ok(rust_files)
 }
 

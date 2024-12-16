@@ -6,92 +6,52 @@ edition = "2021"
 [dependencies]
 
 [[bin]]
-name = "56"
-path = "problems/56 Merge Intervals/main.rs"
+name = "load-cargo"
+path = "load-cargo/main.rs"
 
 [[bin]]
-name = "238"
-path = "problems/238 Product of Array Except Self/product_except_self.rs"
-
-[[bin]]
-name = "49"
-path = "problems/49 Group Anagrams/main.rs"
-
-[[bin]]
-name = "15"
-path = "problems/15 3Sum/three_sum.rs"
-
-[[bin]]
-name = "228"
-path = "problems/228 Summary Ranges/main.rs"
-
-[[bin]]
-name = "2825"
-path = "problems/2825 Make String a Subsequence Using Cyclic Increments/main.rs"
-
-[[bin]]
-name = "2762"
-path = "problems/2762 Continuous Subarrays/main.rs"
-
-[[bin]]
-name = "201"
-path = "problems/201 Bitwise AND of Numbers Range/main.rs"
-
-[[bin]]
-name = "2779"
-path = "problems/2779 Maximum Beauty of an Array After Applying Operation/main.rs"
-
-[[bin]]
-name = "14"
-path = "problems/14 Longest Common Prefix/longest_common_prefix.rs"
-
-[[bin]]
-name = "134"
-path = "problems/134 Gas Station/can_complete_circuit.rs"
-
-[[bin]]
-name = "1455"
-path = "problems/1455 Check If a Word Occurs As a Prefix of Any Word in a Sentence/is_prefix_of_word.rs"
-
-[[bin]]
-name = "36"
-path = "problems/36 Valid Sudoku/main.rs"
-
-[[bin]]
-name = "1975"
-path = "problems/1975 Maximum Matrix Sum/max_matrix_sum.rs"
-
-[[bin]]
-name = "162"
-path = "problems/162 Find Peak Element/main.rs"
-
-[[bin]]
-name = "242"
-path = "problems/242 Valid Anagram/main.rs"
-
-[[bin]]
-name = "71"
-path = "problems/71 Simplify Path/main.rs"
+name = "1"
+path = "problems/1 Two Sum/main.rs"
 
 [[bin]]
 name = "11"
 path = "problems/11 Container With Most Water/maxArea.rs"
 
 [[bin]]
-name = "209"
-path = "problems/209 Minimum Size Subarray Sum/minSubArrayLen.rs"
+name = "134"
+path = "problems/134 Gas Station/can_complete_circuit.rs"
 
 [[bin]]
 name = "137"
 path = "problems/137 Single Number II/main.rs"
 
 [[bin]]
-name = "383"
-path = "problems/383 Ransom Note/main.rs"
+name = "14"
+path = "problems/14 Longest Common Prefix/longest_common_prefix.rs"
+
+[[bin]]
+name = "1455"
+path = "problems/1455 Check If a Word Occurs As a Prefix of Any Word in a Sentence/is_prefix_of_word.rs"
+
+[[bin]]
+name = "15"
+path = "problems/15 3Sum/three_sum.rs"
+
+[[bin]]
+name = "153"
+path = "problems/153 Find Minimum in Rotated Sorted Array/main.rs"
+
+[[bin]]
+name = "162"
+path = "problems/162 Find Peak Element/main.rs"
 
 [[bin]]
 name = "1760"
 path = "problems/1760 Minimum Limit of Balls in a Bag/main.rs"
+
+[[bin]]
+name = "1975"
+path = "problems/1975 Maximum Matrix Sum/max_matrix_sum.rs"
 
 [[bin]]
 name = "198"
@@ -102,50 +62,86 @@ name = "205"
 path = "problems/205 Isomorphic Strings/main.rs"
 
 [[bin]]
-name = "3"
-path = "problems/3 Longest Substring Without Repeating Characters/length_of_longest_substring.rs"
+name = "209"
+path = "problems/209 Minimum Size Subarray Sum/minSubArrayLen.rs"
 
 [[bin]]
-name = "153"
-path = "problems/153 Find Minimum in Rotated Sorted Array/main.rs"
+name = "228"
+path = "problems/228 Summary Ranges/main.rs"
 
 [[bin]]
-name = "1"
-path = "problems/1 Two Sum/main.rs"
+name = "238"
+path = "problems/238 Product of Array Except Self/product_except_self.rs"
 
 [[bin]]
-name = "58"
-path = "problems/58 Length of Last Word/length_of_last_word.rs"
-
-[[bin]]
-name = "380_Insert_Delete_GetRandom_O(1)"
-path = "problems/380_Insert_Delete_GetRandom_O(1)/ranset.rs"
-
-[[bin]]
-name = "33"
-path = "problems/33 Search in Rotated Sorted Array/main.rs"
-
-[[bin]]
-name = "392"
-path = "problems/392 Is Subsequence/is_subsequence.rs"
+name = "242"
+path = "problems/242 Valid Anagram/main.rs"
 
 [[bin]]
 name = "2593"
 path = "problems/2593 Find Score of an Array After Marking All Elements/main.rs"
 
 [[bin]]
-name = "704"
-path = "problems/704 Binary Search/main.rs"
+name = "2762"
+path = "problems/2762 Continuous Subarrays/main.rs"
+
+[[bin]]
+name = "2779"
+path = "problems/2779 Maximum Beauty of an Array After Applying Operation/main.rs"
+
+[[bin]]
+name = "2825"
+path = "problems/2825 Make String a Subsequence Using Cyclic Increments/main.rs"
+
+[[bin]]
+name = "3"
+path = "problems/3 Longest Substring Without Repeating Characters/length_of_longest_substring.rs"
 
 [[bin]]
 name = "30"
 path = "problems/30 Substring with Concatenation of All Words/main.rs"
 
 [[bin]]
+name = "33"
+path = "problems/33 Search in Rotated Sorted Array/main.rs"
+
+[[bin]]
+name = "36"
+path = "problems/36 Valid Sudoku/main.rs"
+
+[[bin]]
+name = "380_Insert_Delete_GetRandom_O(1)"
+path = "problems/380_Insert_Delete_GetRandom_O(1)/ranset.rs"
+
+[[bin]]
+name = "383"
+path = "problems/383 Ransom Note/main.rs"
+
+[[bin]]
+name = "392"
+path = "problems/392 Is Subsequence/is_subsequence.rs"
+
+[[bin]]
+name = "49"
+path = "problems/49 Group Anagrams/main.rs"
+
+[[bin]]
+name = "56"
+path = "problems/56 Merge Intervals/main.rs"
+
+[[bin]]
+name = "58"
+path = "problems/58 Length of Last Word/length_of_last_word.rs"
+
+[[bin]]
 name = "7"
 path = "problems/7 Reverse integer/main.rs"
 
 [[bin]]
-name = "load-cargo"
-path = "load-cargo/main.rs"
+name = "704"
+path = "problems/704 Binary Search/main.rs"
+
+[[bin]]
+name = "71"
+path = "problems/71 Simplify Path/main.rs"
 
