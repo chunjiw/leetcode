@@ -34,6 +34,10 @@ name = "2762"
 path = "problems/2762 Continuous Subarrays/main.rs"
 
 [[bin]]
+name = "201"
+path = "problems/201 Bitwise AND of Numbers Range/main.rs"
+
+[[bin]]
 name = "2779"
 path = "problems/2779 Maximum Beauty of an Array After Applying Operation/main.rs"
 
@@ -64,6 +68,10 @@ path = "problems/162 Find Peak Element/main.rs"
 [[bin]]
 name = "242"
 path = "problems/242 Valid Anagram/main.rs"
+
+[[bin]]
+name = "71"
+path = "problems/71 Simplify Path/main.rs"
 
 [[bin]]
 name = "11"
