@@ -1,5 +1,7 @@
 from typing import List
 
+from collections import deque
+
 class Solution:
 
     def diameter(self, edges):
@@ -10,11 +12,14 @@ class Solution:
             adjacency[b].add(a)
         diameter = 0
         n_edges = n - 1
+        leaves = deque([a for a in range(n) if len(adjacency[a]) == 1])
         while n_edges > 1:
-            leaves = [a for a in range(n) if len(adjacency[a]) == 1]
-            for leaf in leaves:
+            for _ in range(len(leaves)):
+                leaf = leaves.popleft()
                 stem = adjacency[leaf].pop()
                 adjacency[stem].remove(leaf)
+                if len(adjacency[stem]) == 1:
+                    leaves.append(stem)
                 n_edges -= 1
             diameter += 2
         return diameter + n_edges
