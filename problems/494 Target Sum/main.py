@@ -4,15 +4,18 @@ class Solution:
         if target < -totalsum or totalsum < target:
             return 0
         offset = totalsum
-        sumcount = [[0 for _ in range(2*totalsum+1)] for _ in range(len(nums))]
-        for i, num in enumerate(nums):
-            if i == 0:
-                sumcount[0][offset + num] += 1
-                sumcount[0][offset - num] += 1
-                continue
-            for s in range(num, 2*totalsum+1):
-                sumcount[i][s] = sumcount[i-1][s-num]
-            for s in range(0, 2*totalsum+1-num):
-                sumcount[i][s] += sumcount[i-1][s+num]
-        return sumcount[-1][offset + target]
-        
+        sumcount = [0 for _ in range(2*totalsum+1)]
+        # initial condition
+        sumcount[offset + nums[0]] += 1
+        sumcount[offset - nums[0]] += 1
+        for i in range(1, len(nums)):
+            next_dp = list(sumcount)
+            num = nums[i]
+            for s in range(0, num):
+                next_dp[s] = sumcount[s+num]
+            for s in range(num, 2*totalsum+1-num):
+                next_dp[s] = sumcount[s-num] + sumcount[s+num]
+            for s in range(2*totalsum+1-num, 2*totalsum+1):
+                next_dp[s] = sumcount[s-num]
+            sumcount = next_dp
+        return sumcount[offset + target]
