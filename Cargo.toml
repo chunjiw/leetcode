@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+rand = "0.8.5"
 
 [[bin]]
 name = "load-cargo"
@@ -110,8 +111,12 @@ name = "36"
 path = "problems/36 Valid Sudoku/main.rs"
 
 [[bin]]
-name = "380_Insert_Delete_GetRandom_O(1)"
-path = "problems/380_Insert_Delete_GetRandom_O(1)/ranset.rs"
+name = "373"
+path = "problems/373 Find K Pairs with Smallest Sums/main.rs"
+
+[[bin]]
+name = "380"
+path = "problems/380 Insert Delete GetRandom O(1)/ranset.rs"
 
 [[bin]]
 name = "383"
