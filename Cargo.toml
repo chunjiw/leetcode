@@ -126,6 +126,10 @@ name = "49"
 path = "problems/49 Group Anagrams/main.rs"
 
 [[bin]]
+name = "502"
+path = "problems/502 IPO/main.rs"
+
+[[bin]]
 name = "56"
 path = "problems/56 Merge Intervals/main.rs"
 
