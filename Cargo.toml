@@ -110,8 +110,8 @@ name = "36"
 path = "problems/36 Valid Sudoku/main.rs"
 
 [[bin]]
-name = "380_Insert_Delete_GetRandom_O(1)"
-path = "problems/380_Insert_Delete_GetRandom_O(1)/ranset.rs"
+name = "373"
+path = "problems/373 Find K Pairs with Smallest Sums/main.rs"
 
 [[bin]]
 name = "383"
@@ -124,6 +124,10 @@ path = "problems/392 Is Subsequence/is_subsequence.rs"
 [[bin]]
 name = "49"
 path = "problems/49 Group Anagrams/main.rs"
+
+[[bin]]
+name = "502"
+path = "problems/502 IPO/main.rs"
 
 [[bin]]
 name = "56"
