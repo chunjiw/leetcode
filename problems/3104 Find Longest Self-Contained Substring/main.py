@@ -1,5 +1,6 @@
 from collections import Counter
 
+# TLE
 class Solution:
     def maxSubstringLength(self, s: str) -> int:
         freq = Counter(s)
