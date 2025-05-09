@@ -1,18 +1,22 @@
+from typing import List
+
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
         s = sum(nums)
         if s % 2 == 1:
             return False
         s //= 2
-        # pick a subset that sums to s
-        dp = [False] * (s+1)
-        dp[0] = True    # without any number in the subset, a sum of 0 is achievable
-        for i in range(0, len(nums)):
-            ndp = list(dp)
-            for j in range(0, s+1):
-                if dp[j] and j+nums[i] <= s:
-                    ndp[j+nums[i]] = True    # if j is achievable, then j + nums[i] is also achievable
+        dp = [0] * (s+1)
+        dp[0] = 1    # there is 1 way to get subset that sums to 0
+        for num in nums:
+            ndp = dp.copy()
+            for i in range(s+1):
+                if i + num <= s:
+                    ndp[i + num] += dp[i]
+                if ndp[s] > 0: 
+                    return True
             dp = ndp
-            if dp[s]:
-                return True
         return False
+
+sol = Solution()
+print(sol.canPartition([1,5,11,5]))
