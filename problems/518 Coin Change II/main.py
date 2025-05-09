@@ -5,13 +5,9 @@ class Solution:
         dp = [0] * (amount+1)
         dp[0] = 1
         for c in coins:
-            ndp = dp.copy()
             for i in range(amount + 1):
-                d = c
-                while i+d <= amount:
-                    ndp[i+d] += dp[i]
-                    d += c
-            dp = ndp
+                if i - c >= 0:
+                    dp[i] += dp[i-c]
         return dp[amount]
 
 sol = Solution()
