@@ -18,7 +18,7 @@ class Solution:
                     i = m + 1
             return i
 
-        #cache
+        @cache
         def recursion(i, count):
             if count == 0:
                 return 0
