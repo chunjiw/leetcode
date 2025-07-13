@@ -40,21 +40,25 @@ class Solution:
         if x > 0 and y > 0:
             self.nextRound(x-1, m, y-1, px+1, pm, py, result)
             self.nextRound(x-1, m, y-1, px, pm, py+1, result)
-        elif m > 0:
+        elif m > 0 and y > 0:
             self.nextRound(x, m-1, y-1, px, pm+1, py, result)
             self.nextRound(x, m-1, y-1, px, pm, py+1, result)
-        else:
+        elif y > 0:
             self.nextRound(x, m, y-2, px, pm, py+1, result)
+        elif m > 0:
+            self.nextRound(x, m-2, y, px, pm+1, py, result)
 
     def earliestAndLatest(self, n: int, firstPlayer: int, secondPlayer: int) -> List[int]:
         x = firstPlayer - 1
         y = n - secondPlayer
         m = n - x - y - 2
+        if x > y:
+            x, y = y, x
         level = { (x,m,y) }
         rnd = 1
         first, last = 10, 1
         while level:
-            print(level)
+            # print(level)
             newlevel = set()
             for state in level:
                 ns = self.nextStates(state)
@@ -67,9 +71,14 @@ class Solution:
         return [first, last]
 
 sol = Solution()
+
+# print(sol.earliestAndLatest(11, 2, 4))
 # print(sol.nextFree((1,1,7)))
-print(sol.earliestAndLatest(11, 2, 4))
 # print(sol.nextStates((0,0,4)))
 # print(sol.nextStates((0,1,3)))
 
-print(sol.earliestAndLatest(5, 1, 5))
+# print(sol.earliestAndLatest(5, 1, 5))
+
+# print(sol.earliestAndLatest(3, 2, 3))
+
+print(sol.earliestAndLatest(10, 1, 8))
