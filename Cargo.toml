@@ -102,6 +102,10 @@ name = "30"
 path = "problems/30 Substring with Concatenation of All Words/main.rs"
 
 [[bin]]
+name = "3136"
+path = "problems/3136 Valid Word/main.rs"
+
+[[bin]]
 name = "33"
 path = "problems/33 Search in Rotated Sorted Array/main.rs"
 
