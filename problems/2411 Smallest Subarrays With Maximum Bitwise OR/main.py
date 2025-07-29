@@ -4,7 +4,7 @@ class Solution:
         n = len(nums)
         mor = 0
         lastOnesIndex = [-1] * 31
-        result = [0] * n
+        result = [1] * n
         for i in range(n-1, -1, -1):
             for b in range(31):
                 if nums[i] >> b & 1 == 1:
