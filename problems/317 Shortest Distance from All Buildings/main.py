@@ -6,6 +6,8 @@ class Solution:
 
         ds = [(-1,0), (1,0), (0,1), (0,-1)]
 
+        numBuildings = sum(sum(row[j] == 1 for j in range(n)) for row in grid)
+
         result = m*n*m*n
         for i in range(m):
             for j in range(n):
@@ -15,6 +17,7 @@ class Solution:
                 front = deque([ (i,j) ])
                 visited = { (i,j) }
                 distance = 0
+                buildings = 0
                 total = 0
                 while front:
                     distance += 1
@@ -27,13 +30,17 @@ class Solution:
                                     continue
                                 if grid[rr][cc] == 1:
                                     total += distance
+                                    buildings += 1
                                     # print(i, j, rr, cc, distance, total)
                                 else:
                                     front.append((rr,cc))
                                 visited.add((rr,cc))
-                result = min(result, total)
+                if buildings == numBuildings:
+                    result = min(result, total)
 
-        return result
+        return -1 if result == m*m*n*n else result
 
 sol = Solution()
 print(sol.shortestDistance([[1,0,2,0,1], [0,0,0,0,0], [0,0,1,0,0]]))
+print(sol.shortestDistance([[1]]))
+print(sol.shortestDistance([[1, 2, 0]]))
