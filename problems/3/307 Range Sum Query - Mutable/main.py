@@ -6,54 +6,37 @@ class NumArray:
     # O(n)
     def __init__(self, nums: list[int]):
         n = len(nums)
-        self.tree = [0] * (4*n)
+        self.tree = [0] * n + nums
+        for i in range(n-1, 0, -1):
+            self.tree[i] = self.tree[2*i] + self.tree[2*i+1]
         self.n = n
-        # self.nums = nums
 
-        def recursion(node, left, right):
-            if left == right:
-                self.tree[node] = nums[left]
-            else:
-                mid = (left + right) // 2
-                recursion(2*node, left, mid)
-                recursion(2*node+1, mid+1, right)
-                self.tree[node] = self.tree[2*node] + self.tree[2*node+1]
-
-        recursion(1, 0, n-1)
-    
     # O(log n)
     def update(self, index: int, val: int) -> None:
+        i = self.n + index
+        self.tree[i] = val
+        i //= 2
+        while i >= 1:
+            self.tree[i] = self.tree[2*i] + self.tree[2*i+1]
+            i //= 2
         
-        def recursion(node, left, right):
-            if left == right:
-                self.tree[node] = val
-            else:
-                mid = (left + right) // 2
-                if index <= mid:
-                    recursion(2*node, left, mid)
-                else:
-                    recursion(2*node+1, mid+1, right)
-                self.tree[node] = self.tree[2*node] + self.tree[2*node+1]         
-
-        recursion(1, 0, self.n-1)    
-    
     # O(log n)
     def sumRange(self, left: int, right: int) -> int:
-    
-        def recursion(node, l, r):
-            if (l == left and r == right) or l == r:
-                return self.tree[node]
-            else:
-                m = (l + r) // 2
-                if right <= m:
-                    return recursion(2*node, l, m)
-                elif left > m:
-                    return recursion(2*node+1, m+1, r)
-                else:
-                    return recursion(2*node, l, m) + recursion(2*node+1, m+1, r)
+        result = 0
+        left += self.n
+        right += self.n
+        while left <= right:
+            if left % 2 == 1:
+                result += self.tree[left]
+                left += 1
+            if right % 2 == 0:
+                result += self.tree[right]
+                right -= 1
+            left //= 2
+            right //= 2
+        return result
+        
 
-        return recursion(1, 0, self.n-1)    
-    
 na = NumArray([1,3,5])
 print(na.tree)
 print(na.sumRange(0, 2))
