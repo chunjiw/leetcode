@@ -13,13 +13,16 @@ class FileSystem:
     
     def ls(self, path: str) -> list[str]:
         if path == '/':
-            return ['/' + item for item in self.root.children.keys()]
+            return list(self.root.children.keys())
         node = self.root
         for name in path.split('/'):
             if not name:
                 continue
             node = node.children[name]
-        return [path + '/' + item for item in node.children.keys()] 
+        if node.isFile:
+            return [name]
+        else:
+            return list(node.children.keys())
         
     def mkdir(self, path: str) -> None:
         node = self.root
