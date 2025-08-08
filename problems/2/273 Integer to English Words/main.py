@@ -4,6 +4,9 @@ class Solution:
 
     def numberToWords(self, num: int) -> str:
 
+        if num == 0:
+            return "Zero"
+
         d = {
             1: "One",
             2: "Two",
@@ -23,7 +26,7 @@ class Solution:
             16: "Sixteen",
             17: "Seventeen",
             18: "Eighteen",
-            19: "Ninteen",
+            19: "Nineteen",
             20: "Twenty",
             30: "Thirty",
             40: "Forty",
@@ -31,7 +34,7 @@ class Solution:
             60: "Sixty",
             70: "Seventy",
             80: "Eighty",
-            90: "Ninty",
+            90: "Ninety",
         }
 
         result = deque()
@@ -40,6 +43,9 @@ class Solution:
         for g in groups:
             res = []
             m = num % 1000
+            num //= 1000
+            if m == 0:
+                continue
             if m > 99:
                 res.append(d[m // 100])
                 res.append('Hundred')
@@ -53,10 +59,11 @@ class Solution:
             if g:
                 res.append(g)
             result.appendleft(' '.join(res))
-            num //= 1000
-            if num == 0:
-                break
         return ' '.join(result)
     
 sol = Solution()
-print(sol.numberToWords(1204567))
+print('#' + sol.numberToWords(1000000) + '#')
+print('#' + sol.numberToWords(1000) + '#')
+print('#' + sol.numberToWords(12345) + '#')
+print('#' + sol.numberToWords(1234567) + '#')
+print('#' + sol.numberToWords(1234567891) + '#')
