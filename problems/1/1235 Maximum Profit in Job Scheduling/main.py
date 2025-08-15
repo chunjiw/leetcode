@@ -50,7 +50,7 @@ class Solution:
                     return k
             return -1
         
-        return recursion(0)
+        return max(recursion(i) for i in range(n))
         
 sol = Solution()
 
