@@ -16,11 +16,7 @@ class Solution:
                 return 0
             p = intervals[i][2]
             k = next(i)
-            if k == n:
-                return p
-            else:
-                # print(i, max(p + recursion(j) for j in range(k, n)))
-                return max(p + recursion(j) for j in range(k, n))
+            return max(recursion(i+1), p + recursion(k))
 
         def next(k):
             """
@@ -50,29 +46,19 @@ class Solution:
                     return k
             return -1
         
-        return max(recursion(i) for i in range(n))
+        return recursion(0)
         
 sol = Solution()
 
 print(sol.jobScheduling([1,2,3,3], [3,4,5,6], [50,10,40,70]))
 # [1,3,50], [2,4,10], [3,5,40], [3,6,70]
 # r(3) = 70
-# r(2) = 40
-# r(1) = 10
-# r(0) = 50 + 70 = 120
-
-
+# r(2) = max(40, 70) = 70
+# r(1) = max(10, 70) = 70
+# r(0) = max(50 + 70, 70) = 120
 
 print(sol.jobScheduling([0,2,2,7], [1,3,7,10], [3,5,8,1]))
 # [0,1,3] [2,3,5] [2,7,8], [7,10,1]
-# recursion(3) = 1
-# recursion(2) = 8 + r(3) = 9
-# r(1) = 5 + 1 = 6
-# r(0) = 3 + max(r(1), r(2), r(3)) = 3 + 9 = 12
 
 print(sol.jobScheduling([0,2,2,7], [1,3,7,10], [3,8,5,1]))
 # [0,1,3] [2,3,8] [2,7,5], [7,10,1]
-# recursion(3) = 1
-# recursion(2) = 5 + r(3) = 6
-# r(1) = 8 + 1 = 9
-# r(0) = 3 + max(r(1), r(2), r(3)) = 3 + 9 = 12
