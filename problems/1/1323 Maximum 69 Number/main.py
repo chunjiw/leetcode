@@ -1,7 +1,7 @@
 class Solution:
 
     def better(self, num: int) -> int:
-        s = list(str(int))
+        s = list(str(num))
         if '6' not in s:
             return num
         i = s.index('6')
@@ -19,3 +19,6 @@ class Solution:
                 changed = True
             result.append('9')
         return int(''.join(result))
+
+sol = Solution()
+print(sol.better(9669))
