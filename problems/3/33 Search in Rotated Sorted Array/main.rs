@@ -10,9 +10,9 @@ impl Solution {
             }
             if (nums[i] < nums[j] && nums[m] < target)
             || (i == m)
-            || (nums[j] < nums[i] && nums[i] < nums[m] && nums[m] < target)
-            || (target <= nums[j] && nums[j] < nums[i] && nums[i] < nums[m])
-            || (nums[m] < target && target <= nums[j] && nums[j] < nums[i]) {
+            || (nums[i] > nums[j] && nums[i] < nums[m] && nums[m] < target)
+            || (nums[i] > nums[j] && nums[i] < nums[m] && target <= nums[j])
+            || (nums[i] > nums[j] && nums[m] < target && target <= nums[j]) {
                 i = m + 1;
             } else {
                 j = m;
