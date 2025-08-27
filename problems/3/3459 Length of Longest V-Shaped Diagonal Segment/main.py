@@ -45,32 +45,35 @@ class Solution:
                 res = max(res, 1)
                 # explore 4 directions to see possible solutions
                 # direction a
-                if i-1 >= 0 and j+1 < n:
+                if i-1 >= 0 and j+1 < n and grid[i-1][j+1] == 2:
                     for k in range(a[i-1][j+1]):
                         res = max(res, 1 + d[i-1-k][j+1+k] + k)                        
                 # direction b
-                if i-1 >= 0 and j-1 >= 0:
+                if i-1 >= 0 and j-1 >= 0 and grid[i-1][j-1] == 2:
                     for k in range(b[i-1][j-1]):
                         res = max(res, 1 + a[i-1-k][j-1-k] + k)                        
                 # direction c
-                if i+1 < m and j-1 >= 0:
+                if i+1 < m and j-1 >= 0 and grid[i+1][j-1] == 2:
                     for k in range(c[i+1][j-1]):
                         res = max(res, 1 + b[i+1+k][j-1-k] + k)                        
                 # direction d
-                if i+1 < m and j+1 < n:
+                if i+1 < m and j+1 < n and grid[i+1][j+1] == 2:
                     for k in range(d[i+1][j+1]):
                         res = max(res, 1 + c[i+1+k][j+1+k] + k)                        
-
-        return res
         
-        # for row in b:
+        # for row in a:
         #     print(row)
         # print()
         # for row in d:
         #     print(row)
+
+
+        return res
+        
 
 sol = Solution()
 print(sol.lenOfDiagonal([[2,2,1,2,2], [2,0,2,2,0], [2,0,1,1,0], [1,0,2,2,2], [2,0,0,2,2]]))
 print(sol.lenOfDiagonal([[2,2,2,2,2], [2,0,2,2,0], [2,0,1,1,0], [1,0,2,2,2], [2,0,0,2,2]]))
 print(sol.lenOfDiagonal([[1,2,2,2,2], [2,2,2,2,0], [2,0,0,0,0], [0,0,2,2,2], [2,0,0,2,0]]))
 print(sol.lenOfDiagonal([[1]]))
+print(sol.lenOfDiagonal([[2,2,0,2,0,2,0], [1,2,2,1,0,2,0]]))
