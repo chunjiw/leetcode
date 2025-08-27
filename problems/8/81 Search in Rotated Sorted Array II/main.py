@@ -11,11 +11,11 @@ class Solution:
         if j < 0:
             return False
         
-        while i < j:
+        while i <= j:
             m = (i+j) // 2
             if nums[m] == target:
                 return True
-            if nums[i] <= target < nums[m] or target < nums[m] <= nums[j] or (nums[i] <= target and nums[m] <= nums[j]):
+            if nums[i] <= target < nums[m] or target < nums[m] <= nums[j] or (nums[m] <= nums[j] < nums[i] <= target):
                 j = m - 1
             else:
                 i = m + 1
@@ -25,4 +25,6 @@ class Solution:
 sol = Solution()
 print(sol.search([2,5,6,0,0,1,2], 0))
 print(sol.search([2,5,6,0,0,1,2], 3))
+print(sol.search([2,2,2,3,2,2,2], 3))
+
         
