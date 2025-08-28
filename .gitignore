@@ -4,6 +4,7 @@
 !*.py
 !*.rs
 !*.cpp
+!*.txt
 
 !Cargo.toml
 !.cargoignore
