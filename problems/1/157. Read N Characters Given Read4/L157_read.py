@@ -31,10 +31,10 @@ class Solution(object):
         :rtype: The number of characters read (int)
         """
         index = 0  # number of chars read so far
+        buf4 = list(range(4))
         while n:      
-            buf4 = range(4)
             l = read4(buf4)
-            if not l:
+            if l == 0:
                 return index
             for i in range(min(l, n)):
                 buf[index] = buf4[i]
