@@ -29,7 +29,6 @@ class Solution(object):
         s = set()
         for x, y in points:
             s.add((x,y))
-        print s
         for x, y in points:
             if (2 * midx - x, y) not in s:
                 return False
